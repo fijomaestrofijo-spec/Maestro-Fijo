@@ -136,9 +136,50 @@ button, input, select, textarea {
     box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.3);
 }
 
+/* Top Announcement Bar */
+.top-bar {
+    background-color: #0B0F19;
+    color: #94A3B8;
+    font-size: 0.85rem;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.top-bar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.top-bar-slogan {
+    font-weight: 600;
+    color: var(--primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.top-bar-contact {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.top-bar-contact a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.top-bar-contact a:hover {
+    color: var(--white);
+}
+
 /* Header & Navigation */
 header {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
@@ -150,7 +191,6 @@ header {
 }
 
 header.scrolled {
-    padding: 12px 0;
     box-shadow: var(--shadow-sm);
 }
 
@@ -237,6 +277,49 @@ header.scrolled .logo-wrapper img {
     gap: 16px;
 }
 
+.header-socials {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-left: 1px solid var(--border-color);
+    padding-left: 16px;
+    margin-left: 8px;
+}
+
+.header-socials a {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background-color: var(--bg-light);
+    color: var(--secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.header-socials a:hover {
+    background-color: var(--primary);
+    color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+.header-socials a.whatsapp-btn:hover {
+    background-color: #25D366;
+    color: var(--text-white);
+}
+
+.header-socials a.facebook-btn:hover {
+    background-color: #1877F2;
+    color: var(--text-white);
+}
+
+.header-socials a.instagram-btn:hover {
+    background-color: #E1306C;
+    color: var(--text-white);
+}
+
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
@@ -246,11 +329,48 @@ header.scrolled .logo-wrapper img {
     color: var(--secondary);
 }
 
+/* Floating WhatsApp Button */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: var(--text-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
+    z-index: 999;
+    transition: var(--transition);
+    animation: pulse-whatsapp 2s infinite;
+}
+
+.floating-whatsapp:hover {
+    transform: scale(1.1);
+    background-color: #128C7E;
+}
+
+@keyframes pulse-whatsapp {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
 /* Hero Section */
 .hero-section {
     position: relative;
-    padding-top: 180px;
-    padding-bottom: 120px;
+    padding-top: 100px;
+    padding-bottom: 100px;
     background: linear-gradient(135deg, rgba(15, 23, 42, 0.03) 0%, rgba(15, 23, 42, 0.08) 100%);
     overflow: hidden;
 }
@@ -260,6 +380,20 @@ header.scrolled .logo-wrapper img {
     grid-template-columns: 1.1fr 0.9fr;
     gap: 48px;
     align-items: center;
+}
+
+.hero-slogan-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: rgba(245, 158, 11, 0.1);
+    color: #C27803;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    border: 1px solid rgba(245, 158, 11, 0.2);
 }
 
 .hero-content h1 {
@@ -744,8 +878,70 @@ header.scrolled .logo-wrapper img {
 
 .contact-info-panel p {
     color: #94A3B8;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 1.05rem;
+}
+
+.contact-social-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 36px;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-social-grid h4 {
+    font-size: 1rem;
+    color: var(--text-white);
+    margin-bottom: 4px;
+}
+
+.contact-social-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.contact-social-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    color: var(--text-white);
+}
+
+.contact-social-btn.ws {
+    background-color: #25D366;
+}
+
+.contact-social-btn.ws:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+
+.contact-social-btn.fb {
+    background-color: #1877F2;
+}
+
+.contact-social-btn.fb:hover {
+    background-color: #0F5BBE;
+    transform: translateY(-2px);
+}
+
+.contact-social-btn.ig {
+    background: linear-gradient(45deg, #F09433 0%, #E6683C 25%, #DC2743 50%, #CC2366 75%, #BC1888 100%);
+}
+
+.contact-social-btn.ig:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
 }
 
 .contact-details-list {
@@ -998,6 +1194,15 @@ footer {
 }
 
 @media (max-width: 768px) {
+    .top-bar-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .top-bar-contact {
+        justify-content: center;
+    }
+    
     .section {
         padding: 60px 0;
     }
@@ -1015,11 +1220,12 @@ footer {
         background-color: var(--white);
         flex-direction: column;
         align-items: center;
-        padding-top: 60px;
-        gap: 32px;
+        padding-top: 40px;
+        gap: 24px;
         transition: var(--transition);
         border-top: 1px solid var(--border-color);
         z-index: 999;
+        overflow-y: auto;
     }
     
     header.scrolled .nav-menu {
@@ -1032,6 +1238,11 @@ footer {
     }
     
     .nav-actions {
+        display: flex;
+        gap: 8px;
+    }
+    
+    .header-socials {
         display: none;
     }
     
@@ -1070,5 +1281,13 @@ footer {
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+    }
+    
+    .floating-whatsapp {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+        font-size: 1.7rem;
     }
 }
